@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AK — Outreach Scripts</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f0f13; color: #e4e4e7; font-size: 16px; }
+
+    header { background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 20px; border-bottom: 1px solid #2a2a3e; position: sticky; top: 0; z-index: 10; }
+    header h1 { font-size: 1.3rem; font-weight: 700; color: #fff; }
+    header h1 span { color: #f97316; }
+    header p { color: #9ca3af; font-size: 0.8rem; margin-top: 2px; }
+
+    .tabs { display: flex; overflow-x: auto; gap: 8px; padding: 12px 16px; background: #12121a; border-bottom: 1px solid #1e1e2e; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { flex-shrink: 0; padding: 8px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid #2a2a3e; background: #1e1e2e; color: #9ca3af; transition: all 0.15s; }
+    .tab.active { background: #f97316; border-color: #f97316; color: #fff; }
+
+    .content { padding: 20px 16px; max-width: 600px; margin: 0 auto; }
+
+    .section { display: none; }
+    .section.active { display: block; }
+
+    .card { background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 14px; padding: 18px; margin-bottom: 16px; }
+    .card h3 { font-size: 0.9rem; font-weight: 700; color: #f97316; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+
+    .script-block { background: #12121a; border-radius: 10px; padding: 14px; margin-bottom: 10px; border-left: 3px solid #f97316; }
+    .script-block .label { font-size: 0.7rem; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .script-block p { font-size: 0.9rem; color: #e4e4e7; line-height: 1.6; }
+    .script-block p em { color: #f97316; font-style: normal; font-weight: 600; }
+
+    .objection { background: #12121a; border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+    .objection .q { font-size: 0.85rem; font-weight: 700; color: #ef4444; margin-bottom: 8px; }
+    .objection .a { font-size: 0.85rem; color: #e4e4e7; line-height: 1.6; }
+
+    .timeline { display: flex; flex-direction: column; gap: 10px; }
+    .timeline-item { display: flex; gap: 14px; align-items: flex-start; }
+    .timeline-dot { width: 32px; height: 32px; border-radius: 50%; background: #f97316; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .timeline-content h4 { font-size: 0.85rem; font-weight: 700; color: #fff; }
+    .timeline-content p { font-size: 0.82rem; color: #9ca3af; margin-top: 3px; line-height: 1.5; }
+
+    .tip { background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.2); border-radius: 10px; padding: 12px 14px; font-size: 0.82rem; color: #fed7aa; line-height: 1.6; margin-bottom: 16px; }
+    .tip strong { color: #f97316; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AK <span>Outreach</span> Scripts</h1>
+  <p>Tap a script below — use it live on calls</p>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('call', this)">📞 Cold Call</div>
+  <div class="tab" onclick="switchTab('text', this)">💬 Text</div>
+  <div class="tab" onclick="switchTab('email', this)">📧 Email</div>
+  <div class="tab" onclick="switchTab('objections', this)">🛑 Objections</div>
+  <div class="tab" onclick="switchTab('followup', this)">🔄 Follow-Up</div>
+</div>
+
+<div class="content">
+
+  <!-- COLD CALL -->
+  <div class="section active" id="tab-call">
+    <div class="tip"><strong>Tip:</strong> Open the lead finder, pick a business with no website, then use this script. Keep it conversational — you're a local guy helping local businesses.</div>
+
+    <div class="card">
+      <h3>Step 1 — Opener</h3>
+      <div class="script-block">
+        <div class="label">Say this</div>
+        <p>"Hey, is this the owner of <em>[Business Name]</em>?"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Step 2 — The Pitch</h3>
+      <div class="script-block">
+        <div class="label">When they say yes</div>
+        <p>"Hey <em>[Name]</em>, my name is AK. I run a digital marketing agency here in Austin. I was looking for a <em>[plumber / electrician / handyman]</em> in the area and I found your business on Google — I noticed you don't have a website yet. I help local service businesses get found online and get more calls. Is that something you'd be open to hearing more about? Takes two minutes."</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Step 3 — If They Want More Info</h3>
+      <div class="script-block">
+        <div class="label">When they say tell me more</div>
+        <p>"So I build you a professional website, get you showing up on Google when people search for <em>[their service]</em> in Austin, and set up a system that automatically texts back anyone who calls and doesn't get an answer — so you never lose a lead. Most of my clients start getting more calls within the first 30 days. Can I send you some examples and pricing?"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Step 4 — Close</h3>
+      <div class="script-block">
+        <div class="label">Get the meeting</div>
+        <p>"Awesome. What's your email? I'll shoot that over today. And the best way to see if it's a fit is a quick 15-minute call — are you free sometime this week?"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>If They're Not Interested</h3>
+      <div class="script-block">
+        <div class="label">Soft exit</div>
+        <p>"No worries at all — let me send you a quick text with some info and if it ever makes sense down the road, you'll have it. What's the best number?"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEXT -->
+  <div class="section" id="tab-text">
+    <div class="tip"><strong>Tip:</strong> Texts have higher open rates than calls. Send this first, then call if they don't reply in 24 hours.</div>
+
+    <div class="card">
+      <h3>First Text</h3>
+      <div class="script-block">
+        <div class="label">Copy & send</div>
+        <p>"Hey <em>[Name]</em>, my name is AK. I help local service businesses in Austin get more customers through websites and Google. I noticed <em>[Business Name]</em> doesn't have a website — I've helped businesses like yours go from 0 to getting consistent calls online. Mind if I send you some examples?"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>If They Reply Yes</h3>
+      <div class="script-block">
+        <div class="label">Follow up</div>
+        <p>"Awesome! I build professional websites starting at $500, set you up on Google so customers find you, and add an AI system that texts back anyone who calls and doesn't get an answer. Most clients see results in 30 days. Would you be open to a quick 15-min call this week?"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>No Reply After 2 Days</h3>
+      <div class="script-block">
+        <div class="label">Follow up text</div>
+        <p>"Hey <em>[Name]</em>, just following up on my last message. No pressure — just wanted to make sure you got it. Happy to answer any questions!"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL -->
+  <div class="section" id="tab-email">
+    <div class="card">
+      <h3>Subject Line</h3>
+      <div class="script-block">
+        <p>More customers for <em>[Business Name]</em> — quick question</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Email Body</h3>
+      <div class="script-block">
+        <p>Hi <em>[Name]</em>,<br><br>
+        My name is AK and I run a digital marketing agency in Austin focused on local service businesses.<br><br>
+        I came across <em>[Business Name]</em> and noticed you don't have a website yet. I specialize in helping businesses like yours get found on Google and turn more calls into paying customers.<br><br>
+        Here's what I do:<br>
+        • Build a clean, fast website that shows up on Google<br>
+        • Set up your Google Business Profile<br>
+        • Add an AI system that auto-texts back missed calls<br><br>
+        Would you be open to a quick 15-minute call? No pitch, no pressure.<br><br>
+        — AK<br>
+        AK Digital Services | Austin, TX</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OBJECTIONS -->
+  <div class="section" id="tab-objections">
+    <div class="tip"><strong>Tip:</strong> Don't argue. Agree, then redirect. These responses keep the conversation alive.</div>
+
+    <div class="card">
+      <h3>Common Objections</h3>
+
+      <div class="objection">
+        <div class="q">❝ I already get enough business from referrals ❞</div>
+        <div class="a">"That's great — referrals are the best. But what we find is a website makes those referrals close faster. When someone gets referred to you and Googles your name, if nothing comes up, some of them move on. A website just backs up the reputation you already have."</div>
+      </div>
+
+      <div class="objection">
+        <div class="q">❝ I can't afford it right now ❞</div>
+        <div class="a">"I totally get it. The starter site is $500 one time and I offer payment plans. But honestly — what's a typical job worth for you? If one extra customer comes in because of the site, it's already paid for itself."</div>
+      </div>
+
+      <div class="objection">
+        <div class="q">❝ I'll think about it ❞</div>
+        <div class="a">"Of course, no rush. Can I ask — what would need to be true for it to be a yes? Just want to make sure I'm giving you the right info."</div>
+      </div>
+
+      <div class="objection">
+        <div class="q">❝ I had a bad experience with marketing before ❞</div>
+        <div class="a">"I hear that a lot. A lot of agencies overpromise. That's why I offer a first month discount — I want you to see results before you're fully committed. What happened last time?"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOLLOW UP -->
+  <div class="section" id="tab-followup">
+    <div class="tip"><strong>Tip:</strong> Most sales happen on the 3rd-5th contact. Don't give up after one try.</div>
+
+    <div class="card">
+      <h3>14-Day Follow-Up Plan</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">1</div>
+          <div class="timeline-content">
+            <h4>Day 1 — First Contact</h4>
+            <p>Call or text using the main script.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">3</div>
+          <div class="timeline-content">
+            <h4>Day 3 — Follow-Up</h4>
+            <p>"Hey [Name], just following up on my last message. No pressure — happy to answer any questions!"</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">7</div>
+          <div class="timeline-content">
+            <h4>Day 7 — Add Value</h4>
+            <p>"Hey [Name], quick tip — claiming your Google Business Profile for free helps you show up in local searches even without a website. Happy to walk you through it at no charge."</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">14</div>
+          <div class="timeline-content">
+            <h4>Day 14 — Close the Loop</h4>
+            <p>"Hey [Name], last time I'll reach out, promise. If the timing ever works out, I'd love to help [Business Name] get more customers online. Feel free to reach out anytime. Take care!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function switchTab(id, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
+</body>
+</html>

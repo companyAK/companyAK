@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing — AK Digital Services</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .header .brand {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f97316;
+      margin-bottom: 12px;
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+    }
+
+    .header p {
+      margin-top: 12px;
+      color: #6b7280;
+      font-size: 1rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #9ca3af;
+      margin-bottom: 16px;
+      margin-top: 48px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid #e5e7eb;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+
+    .card.featured {
+      border-color: #f97316;
+      box-shadow: 0 0 0 2px rgba(249,115,22,0.2);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f97316;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .card .price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #111827;
+      margin: 10px 0 4px;
+      line-height: 1;
+    }
+
+    .card .price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #9ca3af;
+    }
+
+    .card .desc {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #374151;
+    }
+
+    .card ul li {
+      padding: 5px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .card ul li::before {
+      content: '✓';
+      color: #f97316;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .retainer-table {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      overflow: hidden;
+    }
+
+    .retainer-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .retainer-table thead th {
+      background: #f9fafb;
+      padding: 12px 20px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6b7280;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .retainer-table tbody td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #f3f4f6;
+      color: #374151;
+    }
+
+    .retainer-table tbody tr:last-child td { border-bottom: none; }
+    .retainer-table tbody tr:hover td { background: #fafafa; }
+
+    .retainer-table .price-cell {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .bundle {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-radius: 16px;
+      padding: 32px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .bundle h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .bundle p {
+      color: #9ca3af;
+      font-size: 0.875rem;
+      margin-top: 6px;
+      max-width: 420px;
+    }
+
+    .bundle .bundle-price {
+      text-align: right;
+    }
+
+    .bundle .bundle-price .amount {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #f97316;
+      line-height: 1;
+    }
+
+    .bundle .bundle-price .sub {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    .note {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 0.85rem;
+      color: #92400e;
+      margin-top: 32px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid #e5e7eb;
+      color: #9ca3af;
+      font-size: 0.82rem;
+    }
+
+    .footer strong { color: #f97316; }
+
+    @media print {
+      body { background: #fff; }
+      .card:hover { box-shadow: none; }
+    }
+
+    @media (max-width: 600px) {
+      .bundle { flex-direction: column; }
+      .bundle .bundle-price { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">AK Digital Services · Austin, TX</div>
+    <h1>Simple, Honest Pricing</h1>
+    <p>Professional websites and digital marketing for local service businesses. No fluff, no surprises.</p>
+  </div>
+
+  <!-- WEBSITES -->
+  <div class="section-title">Website Packages</div>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>Starter Site</h3>
+      <div class="price">$500 <span>one-time</span></div>
+      <p class="desc">Get online fast. Perfect for new businesses that just need a clean, professional presence.</p>
+      <ul>
+        <li>Up to 3 pages</li>
+        <li>Mobile friendly</li>
+        <li>Contact form</li>
+        <li>Google Maps embed</li>
+        <li>Delivered in 5–7 days</li>
+      </ul>
+    </div>
+
+    <div class="card featured">
+      <div class="popular-badge">Most Popular</div>
+      <div class="card-icon">🚀</div>
+      <h3>Growth Site</h3>
+      <div class="price">$1,000 <span>one-time</span></div>
+      <p class="desc">A full site built to convert visitors into calls and bookings.</p>
+      <ul>
+        <li>Up to 6 pages</li>
+        <li>Mobile & SEO optimized</li>
+        <li>Online booking / quote form</li>
+        <li>Photo gallery</li>
+        <li>Google Business integration</li>
+        <li>Delivered in 7–10 days</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💼</div>
+      <h3>Premium Site</h3>
+      <div class="price">$2,000 <span>one-time</span></div>
+      <p class="desc">Custom design, full branding, and everything you need to dominate locally.</p>
+      <ul>
+        <li>Unlimited pages</li>
+        <li>Custom design & branding</li>
+        <li>Advanced SEO setup</li>
+        <li>Reviews / testimonials section</li>
+        <li>Speed optimized</li>
+        <li>30 days of support included</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- MONTHLY SERVICES -->
+  <div class="section-title">Monthly Services</div>
+  <div class="retainer-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>What You Get</th>
+          <th>Price/Month</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Website Maintenance</strong></td>
+          <td>Updates, backups, uptime monitoring, small edits</td>
+          <td class="price-cell">$150/mo</td>
+        </tr>
+        <tr>
+          <td><strong>Google Business Management</strong></td>
+          <td>Profile optimization, weekly posts, review responses</td>
+          <td class="price-cell">$200/mo</td>
+        </tr>
+        <tr>
+          <td><strong>Facebook & Instagram Ads</strong></td>
+          <td>Ad creation, targeting, monthly reporting (+ ad spend)</td>
+          <td class="price-cell">$400/mo</td>
+        </tr>
+        <tr>
+          <td><strong>Google Ads</strong></td>
+          <td>Search campaigns, keyword targeting, lead tracking (+ ad spend)</td>
+          <td class="price-cell">$400/mo</td>
+        </tr>
+        <tr>
+          <td><strong>Social Media Management</strong></td>
+          <td>8 posts/month across Facebook & Instagram</td>
+          <td class="price-cell">$250/mo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BUNDLE -->
+  <div class="bundle">
+    <div>
+      <h3>🔥 Full Presence Package</h3>
+      <p>Growth Site + Google Business Management + Facebook Ads. Everything a service business needs to get found and get calls — managed by me every month.</p>
+    </div>
+    <div class="bundle-price">
+      <div class="amount">$600<span style="font-size:1.2rem;color:#9ca3af">/mo</span></div>
+      <div class="sub">+ $1,000 site setup (one-time)<br>+ your ad spend budget</div>
+    </div>
+  </div>
+
+  <div class="note">
+    💡 <strong>New client discount:</strong> First month of any retainer service is 50% off. Let me prove the results before you commit long-term.
+  </div>
+
+  <div class="footer">
+    Questions? Let's talk. <strong>AK Digital Services · Austin, TX</strong><br/>
+    Built for local service businesses that want more customers without the hassle.
+  </div>
+
+</div>
+</body>
+</html>
