@@ -236,11 +236,40 @@
 
 <div class="controls">
   <input type="text" id="search" placeholder="🔍 Search businesses..." oninput="render()" />
+
   <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All</button>
   <button class="filter-btn" data-filter="high" onclick="setFilter('high', this)">🔥 No Website</button>
   <button class="filter-btn medium" data-filter="medium" onclick="setFilter('medium', this)">⚡ Low Reviews</button>
   <button class="filter-btn low" data-filter="low" onclick="setFilter('low', this)">📌 Has Web</button>
-  <span class="count-label" id="count-label"></span>
+
+  <div class="controls" style="padding:0; gap:10px; flex-wrap:wrap; border:0; background:transparent; box-shadow:none; margin-left:auto">
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="color:#6b7280; font-size:0.75rem">Reviews</div>
+      <div style="display:flex; gap:8px">
+        <input id="minReviews" type="number" min="0" value="0" oninput="render()" style="width:90px" />
+        <input id="maxReviews" type="number" min="0" value="20" oninput="render()" style="width:90px" />
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="color:#6b7280; font-size:0.75rem">Rating</div>
+      <div style="display:flex; gap:8px">
+        <input id="minRating" type="number" min="0" max="5" step="0.1" value="0" oninput="render()" style="width:90px" />
+        <input id="maxRating" type="number" min="0" max="5" step="0.1" value="5" oninput="render()" style="width:90px" />
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:6px">
+      <div style="color:#6b7280; font-size:0.75rem">Website</div>
+      <select id="hasWebsite" onchange="render()" style="height:40px">
+        <option value="">All</option>
+        <option value="no">No website</option>
+        <option value="yes">Has website</option>
+      </select>
+    </div>
+
+    <span class="count-label" id="count-label"></span>
+  </div>
 </div>
 
 <div class="table-wrap">
@@ -320,15 +349,40 @@ function sortBy(key) {
 
 function render() {
   const q = document.getElementById('search').value.toLowerCase();
+
+  const minReviews = parseInt(document.getElementById('minReviews')?.value || '0') || 0;
+  const maxReviewsVal = document.getElementById('maxReviews')?.value;
+  const maxReviews = (maxReviewsVal === '' || maxReviewsVal == null) ? null : (parseInt(maxReviewsVal) || 0);
+
+  const minRating = parseFloat(document.getElementById('minRating')?.value || '0') || 0;
+  const maxRatingVal = document.getElementById('maxRating')?.value;
+  const maxRating = (maxRatingVal === '' || maxRatingVal == null) ? 5 : (parseFloat(maxRatingVal) || 5);
+
+  const hasWebsite = document.getElementById('hasWebsite')?.value || '';
+
   let filtered = leads.filter(l => {
-    const matchSearch = !q || l['Business Name'].toLowerCase().includes(q) || l['Address'].toLowerCase().includes(q);
-    const p = l['Priority'];
+    const name = (l['Business Name'] || '').toLowerCase();
+    const addr = (l['Address'] || '').toLowerCase();
+    const matchSearch = !q || name.includes(q) || addr.includes(q);
+
+    const p = l['Priority'] || '';
     const matchFilter =
       currentFilter === 'all' ||
       (currentFilter === 'high' && p.includes('HIGH')) ||
       (currentFilter === 'medium' && p.includes('MEDIUM')) ||
       (currentFilter === 'low' && p.includes('LOW'));
-    return matchSearch && matchFilter;
+
+    const reviews = parseInt(l['Reviews']) || 0;
+    const rating = (l['Rating'] === 'N/A' || l['Rating'] === '' || l['Rating'] == null) ? null : (parseFloat(l['Rating']) || null);
+
+    const matchReviews = reviews >= minReviews && (maxReviews === null ? true : reviews <= maxReviews);
+    const matchRating = rating === null ? true : (rating >= minRating && rating <= maxRating);
+
+    const website = (l['Website'] || '').trim();
+    const hasWeb = !(website === '' || website === 'NONE');
+    const matchWebsite = hasWebsite === '' || (hasWebsite === 'yes' && hasWeb) || (hasWebsite === 'no' && !hasWeb);
+
+    return matchSearch && matchFilter && matchReviews && matchRating && matchWebsite;
   });
 
   filtered.sort((a, b) => {
