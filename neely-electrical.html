@@ -1,1749 +1,684 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neely Electrical Services Co — Licensed Electrician Austin TX</title>
-  <meta name="description" content="Neely Electrical Services Co — Licensed & insured electrician in Austin, TX. Panel upgrades, EV chargers, wiring, emergency repairs. Call (512) 335-7682." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ─── Reset & Base ─────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #0a0a0f;
-      --bg2:      #0f0f18;
-      --bg3:      #13131e;
-      --gold:     #f5c518;
-      --gold-dim: #c9a010;
-      --gold-glow:rgba(245,197,24,0.18);
-      --white:    #ffffff;
-      --muted:    #9999b3;
-      --border:   rgba(245,197,24,0.15);
-      --font-head:'Bebas Neue', sans-serif;
-      --font-body:'DM Sans', sans-serif;
-      --nav-h:    72px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    img { display: block; max-width: 100%; }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* ─── Utility ───────────────────────────────────────────────── */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .gold { color: var(--gold); }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 30px;
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.04em;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      border: 2px solid transparent;
-      white-space: nowrap;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: #000;
-      border-color: var(--gold);
-    }
-    .btn-gold:hover {
-      background: transparent;
-      color: var(--gold);
-      box-shadow: 0 0 24px var(--gold-glow);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border-color: rgba(255,255,255,0.4);
-    }
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      box-shadow: 0 0 20px var(--gold-glow);
-    }
-
-    .section-label {
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-family: var(--font-head);
-      font-size: clamp(36px, 5vw, 58px);
-      line-height: 1.05;
-      letter-spacing: 0.02em;
-      color: var(--white);
-    }
-
-    /* ─── NAV ────────────────────────────────────────────────────── */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      background: rgba(10,10,15,0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
-    }
-
-    #nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--gold);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-logo-icon svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .nav-logo-text {
-      font-family: var(--font-head);
-      font-size: 22px;
-      letter-spacing: 0.04em;
-      line-height: 1;
-    }
-
-    .nav-logo-text span {
-      display: block;
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 1px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--muted);
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    .nav-cta .btn {
-      padding: 10px 22px;
-      font-size: 14px;
-    }
-
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    /* Mobile nav */
-    .nav-mobile {
-      display: none;
-      position: fixed;
-      top: var(--nav-h);
-      left: 0; right: 0;
-      background: rgba(10,10,15,0.98);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 24px;
-      flex-direction: column;
-      gap: 20px;
-      z-index: 999;
-    }
-
-    .nav-mobile.open { display: flex; }
-
-    .nav-mobile a {
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--muted);
-      transition: color 0.2s;
-    }
-    .nav-mobile a:hover { color: var(--gold); }
-
-    /* ─── HERO ───────────────────────────────────────────────────── */
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: var(--nav-h);
-      overflow: hidden;
-      background: var(--bg);
-    }
-
-    /* Circuit grid background */
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .hero-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(245,197,24,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245,197,24,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(245,197,24,0.07) 0%, transparent 70%);
-    }
-
-    /* Circuit trace SVG lines */
-    .circuit-svg {
-      position: absolute;
-      right: -40px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 55%;
-      max-width: 700px;
-      opacity: 0.12;
-    }
-
-    /* Glow orbs */
-    .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      pointer-events: none;
-    }
-
-    .hero-orb-1 {
-      width: 500px;
-      height: 500px;
-      background: rgba(245,197,24,0.12);
-      right: 10%;
-      top: 10%;
-    }
-
-    .hero-orb-2 {
-      width: 300px;
-      height: 300px;
-      background: rgba(245,197,24,0.06);
-      left: -80px;
-      bottom: 20%;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(245,197,24,0.1);
-      border: 1px solid rgba(245,197,24,0.3);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      background: var(--gold);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.7); }
-    }
-
-    .hero-title {
-      font-family: var(--font-head);
-      font-size: clamp(52px, 8vw, 96px);
-      line-height: 0.98;
-      letter-spacing: 0.02em;
-      color: var(--white);
-      margin-bottom: 24px;
-    }
-
-    .hero-title .line-gold {
-      color: var(--gold);
-      display: block;
-    }
-
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 19px);
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 40px;
-      line-height: 1.65;
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .hero-ctas .btn { font-size: 16px; padding: 16px 34px; }
-
-    .hero-note {
-      margin-top: 48px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .hero-stat {
-      text-align: center;
-    }
-
-    .hero-stat strong {
-      display: block;
-      font-family: var(--font-head);
-      font-size: 32px;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .hero-stat span {
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-
-    .hero-divider {
-      width: 1px;
-      height: 40px;
-      background: var(--border);
-    }
-
-    /* ─── TRUST BAR ─────────────────────────────────────────────── */
-    #trust {
-      background: var(--gold);
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .trust-inner {
-      display: flex;
-      align-items: stretch;
-      flex-wrap: wrap;
-    }
-
-    .trust-item {
-      flex: 1;
-      min-width: 200px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 20px 28px;
-      background: var(--gold);
-      transition: background 0.2s;
-      position: relative;
-    }
-
-    .trust-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 20%;
-      height: 60%;
-      width: 1px;
-      background: rgba(0,0,0,0.15);
-    }
-
-    .trust-item:hover {
-      background: var(--gold-dim);
-    }
-
-    .trust-icon {
-      font-size: 24px;
-      flex-shrink: 0;
-    }
-
-    .trust-text strong {
-      display: block;
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 14px;
-      color: #000;
-      letter-spacing: 0.02em;
-    }
-
-    .trust-text span {
-      font-size: 12px;
-      color: rgba(0,0,0,0.6);
-    }
-
-    /* ─── SERVICES ──────────────────────────────────────────────── */
-    #services {
-      padding: 100px 0;
-      background: var(--bg);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-header .section-title { margin-bottom: 16px; }
-
-    .section-header p {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .service-card {
-      background: var(--bg2);
-      padding: 36px 32px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.25s, transform 0.25s;
-      cursor: default;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover { background: var(--bg3); }
-    .service-card:hover::before { transform: scaleX(1); }
-
-    .service-card:hover .service-icon {
-      background: var(--gold);
-      color: #000;
-      transform: scale(1.1);
-    }
-
-    .service-icon {
-      font-size: 28px;
-      width: 60px;
-      height: 60px;
-      background: rgba(245,197,24,0.1);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      transition: all 0.25s;
-    }
-
-    .service-card h3 {
-      font-family: var(--font-head);
-      font-size: 24px;
-      letter-spacing: 0.04em;
-      margin-bottom: 10px;
-      color: var(--white);
-    }
-
-    .service-card p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .service-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 18px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      transition: gap 0.2s;
-    }
-
-    .service-card:hover .service-link { gap: 10px; }
-
-    /* ─── WHY US ─────────────────────────────────────────────────── */
-    #why {
-      padding: 100px 0;
-      background: var(--bg2);
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 60px;
-    }
-
-    .why-card {
-      padding: 44px 36px;
-      background: var(--bg3);
-      border: 1px solid transparent;
-      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-      position: relative;
-    }
-
-    .why-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(245,197,24,0.08);
-    }
-
-    .why-num {
-      font-family: var(--font-head);
-      font-size: 72px;
-      color: rgba(245,197,24,0.12);
-      line-height: 1;
-      margin-bottom: 16px;
-      transition: color 0.25s;
-    }
-
-    .why-card:hover .why-num { color: rgba(245,197,24,0.25); }
-
-    .why-card h3 {
-      font-family: var(--font-head);
-      font-size: 26px;
-      letter-spacing: 0.04em;
-      margin-bottom: 14px;
-      color: var(--white);
-    }
-
-    .why-card p {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    /* ─── REVIEWS ─────────────────────────────────────────────────── */
-    #reviews {
-      padding: 100px 0;
-      background: var(--bg);
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 60px;
-    }
-
-    .review-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 36px 32px;
-      position: relative;
-      transition: border-color 0.25s, box-shadow 0.25s;
-    }
-
-    .review-card:hover {
-      border-color: rgba(245,197,24,0.35);
-      box-shadow: 0 8px 32px rgba(245,197,24,0.06);
-    }
-
-    .review-stars {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 20px;
-    }
-
-    .review-stars span {
-      color: var(--gold);
-      font-size: 18px;
-    }
-
-    .review-quote {
-      font-size: 32px;
-      color: var(--gold);
-      opacity: 0.3;
-      font-family: Georgia, serif;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .review-text {
-      font-size: 15px;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.7;
-      margin-bottom: 28px;
-      font-style: italic;
-    }
-
-    .review-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .review-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-head);
-      font-size: 20px;
-      color: #000;
-      flex-shrink: 0;
-    }
-
-    .review-meta strong {
-      display: block;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .review-meta span {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .review-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(245,197,24,0.1);
-      border: 1px solid rgba(245,197,24,0.2);
-      border-radius: 100px;
-      padding: 4px 12px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
-
-    /* ─── CTA SECTION ─────────────────────────────────────────────── */
-    #cta {
-      padding: 100px 0;
-      background: var(--bg2);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    #cta::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(245,197,24,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245,197,24,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    #cta::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(245,197,24,0.06) 0%, transparent 70%);
-    }
-
-    .cta-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-title {
-      font-family: var(--font-head);
-      font-size: clamp(42px, 6vw, 72px);
-      line-height: 1.02;
-      letter-spacing: 0.02em;
-      margin-bottom: 20px;
-    }
-
-    .cta-sub {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 480px;
-      margin: 0 auto 40px;
-    }
-
-    .cta-btns {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-btns .btn { font-size: 16px; padding: 16px 36px; }
-
-    /* ─── CONTACT ─────────────────────────────────────────────────── */
-    #contact {
-      padding: 100px 0;
-      background: var(--bg);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 80px;
-      align-items: start;
-      margin-top: 60px;
-    }
-
-    .contact-info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 36px;
-    }
-
-    .contact-info-icon {
-      width: 46px;
-      height: 46px;
-      background: rgba(245,197,24,0.1);
-      border: 1px solid rgba(245,197,24,0.2);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-
-    .contact-info-text strong {
-      display: block;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-
-    .contact-info-text p {
-      font-size: 16px;
-      color: var(--white);
-    }
-
-    .contact-info-text span {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .contact-hours {
-      margin-top: 40px;
-      padding-top: 36px;
-      border-top: 1px solid var(--border);
-    }
-
-    .contact-hours h4 {
-      font-family: var(--font-head);
-      font-size: 22px;
-      letter-spacing: 0.04em;
-      margin-bottom: 16px;
-    }
-
-    .hours-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .hours-row span:last-child { color: var(--white); }
-
-    /* Contact form */
-    .contact-form {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 48px 44px;
-    }
-
-    .contact-form h3 {
-      font-family: var(--font-head);
-      font-size: 28px;
-      letter-spacing: 0.04em;
-      margin-bottom: 6px;
-    }
-
-    .contact-form p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 32px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      padding: 14px 16px;
-      font-family: var(--font-body);
-      font-size: 15px;
-      color: var(--white);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      width: 100%;
-    }
-
-    .form-group select {
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239999b3' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      padding-right: 40px;
-      cursor: pointer;
-    }
-
-    .form-group select option {
-      background: var(--bg2);
-      color: var(--white);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(245,197,24,0.1);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255,255,255,0.2);
-    }
-
-    .form-submit {
-      width: 100%;
-      justify-content: center;
-      margin-top: 8px;
-      font-size: 16px;
-      padding: 16px;
-    }
-
-    .form-disclaimer {
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 14px;
-    }
-
-    /* Form success state */
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .form-success.show { display: block; }
-    .form-fields.hidden { display: none; }
-
-    .success-icon {
-      font-size: 52px;
-      margin-bottom: 16px;
-    }
-
-    .form-success h4 {
-      font-family: var(--font-head);
-      font-size: 28px;
-      letter-spacing: 0.04em;
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
-
-    .form-success p {
-      font-size: 15px;
-      color: var(--muted);
-    }
-
-    /* ─── FOOTER ─────────────────────────────────────────────────── */
-    #footer {
-      background: #050508;
-      border-top: 1px solid var(--border);
-      padding: 60px 0 40px;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
-      padding-bottom: 40px;
-      margin-bottom: 40px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .footer-brand .nav-logo-text {
-      font-size: 28px;
-    }
-
-    .footer-tagline {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 12px;
-      max-width: 260px;
-      line-height: 1.6;
-    }
-
-    .footer-links h5 {
-      font-family: var(--font-head);
-      font-size: 16px;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .footer-links ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer-links ul a {
-      font-size: 14px;
-      color: var(--muted);
-      transition: color 0.2s;
-    }
-
-    .footer-links ul a:hover { color: var(--white); }
-
-    .footer-contact p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .footer-contact a {
-      color: var(--white);
-      transition: color 0.2s;
-    }
-
-    .footer-contact a:hover { color: var(--gold); }
-
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-copy {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .footer-lic {
-      font-size: 13px;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .footer-lic::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--gold);
-      border-radius: 50%;
-    }
-
-    /* ─── SCROLL REVEAL ──────────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-
-    /* ─── RESPONSIVE ─────────────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-grid { grid-template-columns: 1fr; gap: 50px; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links, .nav-cta { display: none; }
-      .nav-toggle { display: flex; }
-
-      .hero-title { font-size: clamp(44px, 11vw, 72px); }
-      .hero-note { flex-wrap: wrap; gap: 16px; }
-
-      .services-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
-
-      .trust-inner { flex-direction: column; }
-      .trust-item::after { display: none; }
-
-      .form-row { grid-template-columns: 1fr; }
-
-      .contact-form { padding: 32px 24px; }
-
-      .footer-inner { flex-direction: column; gap: 32px; }
-      .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
-
-      .circuit-svg { display: none; }
-
-      #services, #why, #reviews, #cta, #contact { padding: 70px 0; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-ctas .btn { width: 100%; justify-content: center; }
-      .cta-btns .btn { width: 100%; justify-content: center; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Neely Electrical Services Co | Licensed Electrician Austin, TX</title>
+<meta name="description" content="Austin's trusted licensed electrician. Panel upgrades, EV chargers, same-day service. Call (512) 335-7682 for a free quote."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#f5c518;--gold-dim:#c9a00f;--gold-glow:rgba(245,197,24,0.25);
+  --bg:#08080d;--bg2:#0d0d14;--bg3:#11111a;
+  --text:#f0f0f0;--muted:#666;--border:rgba(255,255,255,0.07);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:72px;
+  transition:background .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{background:rgba(8,8,13,.96);backdrop-filter:blur(12px);border-color:var(--border)}
+.nav-logo{font-family:'Bebas Neue',cursive;font-size:1.6rem;letter-spacing:.08em;color:#fff;text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  background:var(--gold);color:#000;padding:.6rem 1.4rem;
+  border-radius:3px;font-weight:700;font-size:.88rem;text-decoration:none;
+  transition:background .2s,transform .2s;letter-spacing:.03em;
+}
+.nav-cta:hover{background:var(--gold-dim);transform:translateY(-1px)}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:#fff;transition:.3s}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:72px 6% 0;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 70% at 75% 50%,rgba(245,197,24,.06) 0%,transparent 65%),
+    radial-gradient(ellipse 30% 40% at 20% 80%,rgba(245,197,24,.03) 0%,transparent 60%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
+}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);
+  padding:.35rem .9rem;border-radius:100px;
+  font-size:.78rem;font-weight:500;color:rgba(255,255,255,.6);
+  margin-bottom:2rem;
+}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+.hero h1{
+  font-family:'Bebas Neue',cursive;
+  font-size:clamp(5rem,13vw,11rem);
+  line-height:.88;
+  letter-spacing:.02em;
+  margin-bottom:2rem;
+}
+.h1-outline{
+  -webkit-text-stroke:2px var(--gold);
+  color:transparent;
+  display:block;
+}
+.h1-solid{color:#fff;display:block}
+.h1-gold{color:var(--gold);display:block}
+
+.hero-sub{
+  font-size:1.1rem;color:rgba(255,255,255,.5);
+  max-width:460px;margin-bottom:2.5rem;font-weight:300;line-height:1.7;
+}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--gold);color:#000;
+  padding:.85rem 2rem;border-radius:3px;
+  font-weight:700;font-size:.95rem;text-decoration:none;
+  transition:background .2s,transform .2s,box-shadow .2s;letter-spacing:.02em;
+}
+.btn-primary:hover{background:var(--gold-dim);transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,197,24,.3)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:transparent;color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  padding:.85rem 2rem;border-radius:3px;
+  font-weight:500;font-size:.95rem;text-decoration:none;
+  transition:border-color .2s,background .2s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+.hero-stats{display:flex;gap:3rem;flex-wrap:wrap}
+.hero-stat-num{
+  font-family:'Bebas Neue',cursive;font-size:2.5rem;
+  color:var(--gold);letter-spacing:.04em;display:block;
+}
+.hero-stat-label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+
+/* Lightning SVG */
+.hero-bolt{
+  position:absolute;right:4%;top:50%;transform:translateY(-50%);
+  width:clamp(200px,25vw,380px);opacity:.15;pointer-events:none;
+}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap{
+  background:rgba(245,197,24,.08);border-top:1px solid rgba(245,197,24,.15);
+  border-bottom:1px solid rgba(245,197,24,.15);
+  padding:.85rem 0;overflow:hidden;white-space:nowrap;
+}
+.marquee-track{
+  display:inline-flex;animation:marquee 28s linear infinite;
+}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:1.2rem;
+  padding:0 2.5rem;
+  font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);
+}
+.marquee-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.4}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTIONS ─── */
+section{padding:110px 6%}
+.section-eyebrow{
+  display:inline-block;
+  color:var(--gold);font-size:.75rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:.8rem;
+}
+.section-title{
+  font-family:'Bebas Neue',cursive;
+  font-size:clamp(2.8rem,5vw,4.5rem);line-height:.95;
+  margin-bottom:1rem;letter-spacing:.02em;
+}
+.section-sub{color:var(--muted);font-size:1rem;max-width:480px;margin-bottom:4rem;font-weight:300;line-height:1.7}
+
+/* ─── STATS ─── */
+.stats-section{background:var(--bg2);padding:80px 6%}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--border);
+}
+.stat-block{
+  padding:3rem 2.5rem;border-right:1px solid var(--border);
+  text-align:center;
+}
+.stat-block:last-child{border-right:none}
+.stat-num{
+  font-family:'Bebas Neue',cursive;font-size:4rem;
+  color:var(--gold);letter-spacing:.04em;display:block;line-height:1;
+}
+.stat-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.5rem}
+
+/* ─── SERVICES ─── */
+.services-section{background:var(--bg)}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+}
+.service-card{
+  background:var(--bg2);padding:2.8rem 2.2rem;
+  transition:background .25s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.service-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s;
+}
+.service-card:hover{background:var(--bg3)}
+.service-card:hover::after{transform:scaleX(1)}
+.service-card:hover .svc-icon{color:var(--gold);filter:drop-shadow(0 0 8px rgba(245,197,24,.5))}
+.svc-icon{
+  color:rgba(255,255,255,.25);margin-bottom:1.2rem;
+  transition:color .3s,filter .3s;display:block;
+}
+.service-card h3{
+  font-family:'Bebas Neue',cursive;font-size:1.6rem;
+  letter-spacing:.04em;margin-bottom:.6rem;
+}
+.service-card p{color:var(--muted);font-size:.88rem;font-weight:300;line-height:1.65}
+
+/* ─── WHY US ─── */
+.why-section{background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.why-card{
+  padding:2.8rem 2.2rem;border:1px solid var(--border);
+  border-radius:2px;position:relative;overflow:hidden;
+  transition:border-color .25s,transform .25s,box-shadow .25s;
+}
+.why-card:hover{
+  border-color:var(--gold);transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(245,197,24,.1);
+}
+.why-ghost-num{
+  position:absolute;top:-1rem;right:1.5rem;
+  font-family:'Bebas Neue',cursive;font-size:8rem;
+  color:rgba(255,255,255,.03);line-height:1;pointer-events:none;
+  letter-spacing:.02em;
+}
+.why-card h3{font-family:'Bebas Neue',cursive;font-size:1.7rem;letter-spacing:.03em;margin-bottom:.8rem}
+.why-card p{color:var(--muted);font-size:.9rem;font-weight:300;line-height:1.7}
+
+/* ─── REVIEWS ─── */
+.reviews-section{background:var(--bg)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.review-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:2px;padding:2.2rem;
+  transition:border-color .25s,box-shadow .25s;
+}
+.review-card:hover{border-color:rgba(245,197,24,.3);box-shadow:0 0 40px rgba(245,197,24,.05)}
+.review-quote{
+  font-family:'Bebas Neue',cursive;font-size:5rem;
+  color:rgba(245,197,24,.15);line-height:.6;margin-bottom:1.2rem;display:block;
+}
+.review-stars{color:var(--gold);font-size:1rem;letter-spacing:.1em;margin-bottom:1rem}
+.review-card p{color:rgba(255,255,255,.65);font-size:.92rem;font-style:italic;font-weight:300;line-height:1.7;margin-bottom:1.5rem}
+.review-author{font-weight:600;font-size:.88rem}
+.review-author span{color:var(--muted);font-weight:400}
+.review-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  margin-top:.8rem;font-size:.72rem;color:var(--muted);
+  background:rgba(255,255,255,.04);padding:.25rem .7rem;border-radius:100px;
+}
+
+/* ─── CTA ─── */
+.cta-section{
+  background:var(--bg2);position:relative;overflow:hidden;
+  text-align:center;padding:140px 6%;
+}
+.cta-diagonal{
+  position:absolute;top:0;left:-10%;right:-10%;height:4px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.cta-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,197,24,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-section .section-title{font-size:clamp(3rem,7vw,6rem);margin-bottom:.5rem}
+.cta-section p{color:var(--muted);margin-bottom:2.5rem;font-size:1.05rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ─── CONTACT ─── */
+.contact-section{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:start}
+.contact-info h3{font-family:'Bebas Neue',cursive;font-size:2.5rem;margin-bottom:2rem;letter-spacing:.03em}
+.contact-row{display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:1.8rem}
+.contact-icon{
+  width:42px;height:42px;border:1px solid var(--border);border-radius:2px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;
+}
+.contact-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}
+.contact-val{font-size:.95rem;font-weight:500}
+.contact-val a{color:var(--gold);text-decoration:none}
+
+/* Glass form */
+.contact-form-wrap{
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:4px;padding:2.5rem;backdrop-filter:blur(10px);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem}
+.form-group label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.12);
+  color:var(--text);padding:.7rem 0;font-family:'DM Sans',sans-serif;font-size:.95rem;
+  outline:none;transition:border-color .2s;width:100%;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group select option{background:var(--bg2)}
+.btn-submit{
+  width:100%;background:var(--gold);color:#000;padding:1rem;
+  font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;
+  border:none;border-radius:3px;cursor:pointer;letter-spacing:.05em;
+  text-transform:uppercase;transition:background .2s,transform .2s;
+}
+.btn-submit:hover{background:var(--gold-dim);transform:translateY(-1px)}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--bg2);border-top:1px solid var(--border);
+  padding:3.5rem 6% 2rem;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-logo{font-family:'Bebas Neue',cursive;font-size:1.8rem;color:#fff;margin-bottom:.8rem}
+.footer-logo span{color:var(--gold)}
+.footer-tagline{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.6;max-width:240px}
+.footer-col h4{font-family:'Bebas Neue',cursive;font-size:1.1rem;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col ul li a{color:rgba(255,255,255,.45);font-size:.88rem;text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:var(--gold)}
+.footer-col ul li{color:rgba(255,255,255,.45);font-size:.88rem}
+.footer-bottom{
+  border-top:1px solid var(--border);padding-top:1.5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.footer-bottom p{color:var(--muted);font-size:.8rem}
+
+/* ─── REVEAL ANIMATION ─── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ─── MOBILE ─── */
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-block:nth-child(2){border-right:none}
+  .stat-block:nth-child(3){border-top:1px solid var(--border);border-right:1px solid var(--border)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;
+    top:72px;left:0;right:0;background:rgba(8,8,13,.98);
+    padding:2rem 6%;gap:1.5rem;border-bottom:1px solid var(--border);
+  }
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:1fr}
+  .hero-bolt{display:none}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem}
+  .cta-btns{flex-direction:column;align-items:center}
+}
+</style>
 </head>
 <body>
 
-  <!-- ─── NAV ─────────────────────────────────────────────────── -->
-  <nav id="nav">
-    <div class="container">
-      <a href="#hero" class="nav-logo">
-        <div class="nav-logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 2L4.5 13.5H11.5L11 22L19.5 10.5H12.5L13 2Z" fill="#000" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="nav-logo-text">
-          NEELY ELECTRICAL
-          <span>Services Co.</span>
-        </div>
-      </a>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">NEELY <span>ELECTRICAL</span></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:5123357682" class="nav-cta">Free Quote</a>
+  <button class="nav-burger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#why">About</a></li>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Lightning bolt SVG -->
+  <svg class="hero-bolt" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="120,0 40,220 95,220 80,400 170,160 108,160 140,0" fill="#f5c518"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Available Today — Same-Day Service
+    </div>
+    <h1>
+      <span class="h1-outline">NEELY</span>
+      <span class="h1-solid">ELECTRICAL</span>
+      <span class="h1-gold">AUSTIN TX</span>
+    </h1>
+    <p class="hero-sub">Licensed, insured, and ready. We show up on time, do the job right, and leave your home cleaner than we found it.</p>
+    <div class="hero-ctas">
+      <a href="tel:5123357682" class="btn-primary">📞 Call (512) 335-7682</a>
+      <a href="#contact" class="btn-ghost">Get Free Quote →</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="hero-stat-num" data-count="500">0</span><span class="hero-stat-label">Jobs Done</span></div>
+      <div><span class="hero-stat-num">5.0★</span><span class="hero-stat-label">Avg Rating</span></div>
+      <div><span class="hero-stat-num" data-count="8">0</span><span class="hero-stat-label">Years Local</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">⚡ Licensed &amp; Insured<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Same-Day Service<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Flat-Rate Pricing<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ 5-Star Rated<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Background Checked<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Austin Local<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Licensed &amp; Insured<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Same-Day Service<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Flat-Rate Pricing<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ 5-Star Rated<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Background Checked<span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ Austin Local<span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-grid reveal">
+    <div class="stat-block"><span class="stat-num" data-count="500">0</span><div class="stat-label">Jobs Completed</div></div>
+    <div class="stat-block"><span class="stat-num">5.0★</span><div class="stat-label">Average Rating</div></div>
+    <div class="stat-block"><span class="stat-num" data-count="8">0</span><div class="stat-label">Years in Austin</div></div>
+    <div class="stat-block"><span class="stat-num">Same Day</span><div class="stat-label">Service Available</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-eyebrow reveal">What We Do</div>
+  <h2 class="section-title reveal">Every Electrical<br/>Job. Done Right.</h2>
+  <p class="section-sub reveal">Handled by a licensed electrician. No subcontractors. No surprises.</p>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <svg class="svc-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <h3>Panel Upgrades</h3>
+      <p>Outdated breaker box? We upgrade your panel safely and to code, ready for modern electrical demands.</p>
+    </div>
+    <div class="service-card">
+      <svg class="svc-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+      <h3>Outlet &amp; Wiring</h3>
+      <p>New outlets, GFCI installs, dedicated circuits, full rewiring for older homes. Done clean, done right.</p>
+    </div>
+    <div class="service-card">
+      <svg class="svc-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7zM10 21h4M12 21v1"/></svg>
+      <h3>Lighting Install</h3>
+      <p>Recessed lighting, ceiling fans, fixtures, and smart switches installed with a clean finish every time.</p>
+    </div>
+    <div class="service-card">
+      <svg class="svc-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M7 10h0M7 14h0M12 12h5"/></svg>
+      <h3>EV Charger Install</h3>
+      <p>Level 2 home EV charger installation. We handle the permit, the panel work, and the final hookup.</p>
+    </div>
+    <div class="service-card">
+      <svg class="svc-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h3>Safety Inspections</h3>
+      <p>Full electrical inspection to catch hazards before they become fires. Peace of mind, fully documented.</p>
+    </div>
+    <div class="service-card">
+      <svg class="svc-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <h3>Emergency Repairs</h3>
+      <p>Power out? Sparks flying? We respond fast to keep your home and family safe — day or night.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="why">
+  <div class="section-eyebrow reveal">Why Neely</div>
+  <h2 class="section-title reveal">We Do Things<br/>Differently.</h2>
+  <p class="section-sub reveal">Three things that separate us from every other electrician in Austin.</p>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-ghost-num">01</div>
+      <h3>Local Austin Experts</h3>
+      <p>We know Austin homes inside and out. Mueller bungalows to East Austin new builds — we have seen it all and know exactly what each neighborhood needs.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-ghost-num">02</div>
+      <h3>Upfront Flat-Rate Pricing</h3>
+      <p>You get the price before we start. No hourly surprises. No hidden trip fees. What we quote is what you pay — every single time.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-ghost-num">03</div>
+      <h3>Clean &amp; Professional</h3>
+      <p>We lay drop cloths, clean up after ourselves, and treat your home like it is our own. Your walls will not remember we were there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="section-eyebrow reveal">Happy Customers</div>
+  <h2 class="section-title reveal">What Austin<br/>Homeowners Say</h2>
+  <p class="section-sub reveal">Verified reviews from real Austin customers.</p>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <span class="review-quote">"</span>
+      <div class="review-stars">★★★★★</div>
+      <p>Neely came out same day to fix a tripped breaker that kept killing our kitchen. Fast, clean, and actually explained what happened. Won't call anyone else.</p>
+      <div class="review-author">Marcus T. <span>— East Austin</span></div>
+      <span class="review-badge">✓ Verified Google Review</span>
+    </div>
+    <div class="review-card reveal">
+      <span class="review-quote">"</span>
+      <div class="review-stars">★★★★★</div>
+      <p>Had them install recessed lighting in three rooms and an EV charger in the garage. Crew was on time, professional, and the work looked incredible. Highly recommend.</p>
+      <div class="review-author">Priya K. <span>— Cedar Park</span></div>
+      <span class="review-badge">✓ Verified Google Review</span>
+    </div>
+    <div class="review-card reveal">
+      <span class="review-quote">"</span>
+      <div class="review-stars">★★★★★</div>
+      <p>Quoted me fair and stuck to it. Panel upgrade done in one day. Inspector passed it first try. That says everything about the quality of their work.</p>
+      <div class="review-author">James R. <span>— Round Rock</span></div>
+      <span class="review-badge">✓ Verified Google Review</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-diagonal"></div>
+  <div class="cta-glow"></div>
+  <div style="position:relative;z-index:2">
+    <div class="section-eyebrow">Ready To Start?</div>
+    <h2 class="section-title">Get Your Free<br/>Electrical Quote</h2>
+    <p>Same-day estimates available. No obligation. Just honest answers from a licensed pro.</p>
+    <div class="cta-btns">
+      <a href="tel:5123357682" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem">📞 Call (512) 335-7682</a>
+      <a href="#contact" class="btn-ghost" style="font-size:1rem;padding:1rem 2.5rem">Fill Out Quote Form →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-eyebrow reveal">Contact Us</div>
+      <div class="contact-info">
+        <h3>Let's Talk About<br/>Your Project</h3>
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-val"><a href="tel:5123357682">(512) 335-7682</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-val">9407 Brown Ln, Austin, TX 78754</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Hours</div>
+            <div class="contact-val">Mon–Sat 7AM–7PM · Emergency 24/7</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Service Area</div>
+            <div class="contact-val">Austin · Cedar Park · Round Rock · Pflugerville · Georgetown</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap reveal">
+      <form action="#" method="POST">
+        <div class="form-row">
+          <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="John Smith" required/></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(512) 000-0000" required/></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="john@email.com"/></div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select name="service" required>
+            <option value="" disabled selected>Select a service...</option>
+            <option>Panel Upgrade</option>
+            <option>Outlet &amp; Wiring</option>
+            <option>Lighting Installation</option>
+            <option>EV Charger Install</option>
+            <option>Safety Inspection</option>
+            <option>Emergency Repair</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Tell Us About Your Project</label><textarea name="message" placeholder="Describe what you need done..."></textarea></div>
+        <button type="submit" class="btn-submit">Send My Free Quote ⚡</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">NEELY <span>ELECTRICAL</span></div>
+      <p class="footer-tagline">Licensed electrician serving Austin and surrounding areas. Quality work, honest pricing, every time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Panel Upgrades</a></li>
+        <li><a href="#services">Outlet &amp; Wiring</a></li>
+        <li><a href="#services">Lighting Install</a></li>
+        <li><a href="#services">EV Charger</a></li>
+        <li><a href="#services">Safety Inspections</a></li>
+        <li><a href="#services">Emergency Repairs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#why">Why Neely</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-
-      <div class="nav-cta">
-        <a href="tel:5123357682" class="btn btn-gold">⚡ (512) 335-7682</a>
-      </div>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
-  </nav>
-
-  <!-- Mobile Nav -->
-  <div class="nav-mobile" id="navMobile">
-    <a href="#services" onclick="closeMobileNav()">Services</a>
-    <a href="#why" onclick="closeMobileNav()">About</a>
-    <a href="#reviews" onclick="closeMobileNav()">Reviews</a>
-    <a href="#contact" onclick="closeMobileNav()">Contact</a>
-    <a href="tel:5123357682" class="btn btn-gold" style="text-align:center;justify-content:center;">⚡ Call (512) 335-7682</a>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:5123357682">(512) 335-7682</a></li>
+        <li>9407 Brown Ln</li>
+        <li>Austin, TX 78754</li>
+        <li>Mon–Sat 7AM–7PM</li>
+      </ul>
+    </div>
   </div>
+  <div class="footer-bottom">
+    <p>© 2026 Neely Electrical Services Co. All rights reserved.</p>
+    <p>Licensed Electrician · Austin, TX</p>
+  </div>
+</footer>
 
-  <!-- ─── HERO ─────────────────────────────────────────────────── -->
-  <section id="hero">
-    <div class="hero-bg">
-      <!-- Circuit trace pattern -->
-      <svg class="circuit-svg" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Horizontal traces -->
-        <line x1="0" y1="80" x2="200" y2="80" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="200" y1="80" x2="200" y2="180" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="200" y1="180" x2="450" y2="180" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="450" y1="80" x2="450" y2="300" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="300" y1="80" x2="450" y2="80" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="300" y1="80" x2="300" y2="40" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="80" y1="80" x2="80" y2="250" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="80" y1="250" x2="350" y2="250" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="350" y1="250" x2="350" y2="350" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="350" y1="350" x2="550" y2="350" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="550" y1="180" x2="550" y2="420" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="450" y1="300" x2="550" y2="300" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="150" y1="250" x2="150" y2="420" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="150" y1="420" x2="350" y2="420" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="200" y1="180" x2="200" y2="360" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="80" y1="360" x2="200" y2="360" stroke="#f5c518" stroke-width="1.5"/>
-        <line x1="450" y1="420" x2="550" y2="420" stroke="#f5c518" stroke-width="1.5"/>
-        <!-- Nodes -->
-        <circle cx="200" cy="80" r="5" fill="#f5c518"/>
-        <circle cx="450" cy="80" r="5" fill="#f5c518"/>
-        <circle cx="300" cy="80" r="5" fill="#f5c518"/>
-        <circle cx="200" cy="180" r="5" fill="#f5c518"/>
-        <circle cx="450" cy="180" r="5" fill="#f5c518"/>
-        <circle cx="80" cy="250" r="5" fill="#f5c518"/>
-        <circle cx="350" cy="250" r="5" fill="#f5c518"/>
-        <circle cx="450" cy="300" r="5" fill="#f5c518"/>
-        <circle cx="550" cy="300" r="5" fill="#f5c518"/>
-        <circle cx="350" cy="350" r="5" fill="#f5c518"/>
-        <circle cx="150" cy="420" r="5" fill="#f5c518"/>
-        <circle cx="200" cy="360" r="5" fill="#f5c518"/>
-        <circle cx="80" cy="360" r="5" fill="#f5c518"/>
-        <!-- IC chips -->
-        <rect x="220" y="120" width="60" height="40" rx="4" fill="none" stroke="#f5c518" stroke-width="1.5"/>
-        <rect x="380" y="380" width="60" height="40" rx="4" fill="none" stroke="#f5c518" stroke-width="1.5"/>
-        <rect x="460" y="220" width="70" height="50" rx="4" fill="none" stroke="#f5c518" stroke-width="1.5"/>
-        <!-- Resistors -->
-        <rect x="185" y="275" width="30" height="12" rx="2" fill="none" stroke="#f5c518" stroke-width="1.2"/>
-        <rect x="430" y="165" width="12" height="30" rx="2" fill="none" stroke="#f5c518" stroke-width="1.2"/>
-        <!-- Terminal dots (bright) -->
-        <circle cx="300" cy="40" r="7" fill="#f5c518" opacity="0.9"/>
-        <circle cx="550" cy="180" r="7" fill="#f5c518" opacity="0.9"/>
-        <circle cx="150" cy="250" r="4" fill="#f5c518"/>
-        <circle cx="350" cy="420" r="4" fill="#f5c518"/>
-        <circle cx="550" cy="420" r="4" fill="#f5c518"/>
-      </svg>
-    </div>
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40)
+})
 
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
+// Scroll reveal
+const reveals=document.querySelectorAll('.reveal')
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:.12})
+reveals.forEach(el=>observer.observe(el))
 
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">Austin's Trusted Electricians Since Day One</div>
-
-        <h1 class="hero-title">
-          Austin Trusted<br>
-          Electrician.<br>
-          <span class="line-gold">Done Right.</span>
-        </h1>
-
-        <p class="hero-sub">
-          Licensed, insured, and local. Neely Electrical Services delivers expert electrical work across Austin — from panel upgrades to EV chargers — with same-day availability and flat-rate pricing.
-        </p>
-
-        <div class="hero-ctas">
-          <a href="tel:5123357682" class="btn btn-gold">📞 Call Now</a>
-          <a href="#contact" class="btn btn-outline">Get a Free Quote →</a>
-        </div>
-
-        <div class="hero-note">
-          <div class="hero-stat">
-            <strong>500+</strong>
-            <span>Jobs Completed</span>
-          </div>
-          <div class="hero-divider"></div>
-          <div class="hero-stat">
-            <strong>100%</strong>
-            <span>Satisfaction Rate</span>
-          </div>
-          <div class="hero-divider"></div>
-          <div class="hero-stat">
-            <strong>Same</strong>
-            <span>Day Service</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── TRUST BAR ─────────────────────────────────────────────── -->
-  <section id="trust">
-    <div class="trust-inner">
-      <div class="trust-item">
-        <div class="trust-icon">🛡️</div>
-        <div class="trust-text">
-          <strong>Licensed &amp; Insured</strong>
-          <span>State of Texas Certified</span>
-        </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">⚡</div>
-        <div class="trust-text">
-          <strong>Same-Day Service</strong>
-          <span>Available 7 Days a Week</span>
-        </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">✅</div>
-        <div class="trust-text">
-          <strong>100% Satisfaction</strong>
-          <span>We Don't Leave Until It's Right</span>
-        </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">💰</div>
-        <div class="trust-text">
-          <strong>Flat-Rate Pricing</strong>
-          <span>No Hidden Fees, Ever</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── SERVICES ──────────────────────────────────────────────── -->
-  <section id="services">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">What We Do</div>
-        <h2 class="section-title">Electrical Services<br>Built for Austin</h2>
-        <p>From simple outlets to full panel replacements — we handle it all with precision, speed, and fair pricing.</p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">⚡</div>
-          <h3>Panel Upgrades</h3>
-          <p>Older panel causing tripped breakers or safety concerns? We upgrade electrical panels to handle modern power demands safely and to code.</p>
-          <div class="service-link">Learn more →</div>
-        </div>
-
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">🔌</div>
-          <h3>Outlet &amp; Wiring</h3>
-          <p>Install new outlets, repair faulty wiring, add dedicated circuits — done right the first time with proper code compliance and clean finishes.</p>
-          <div class="service-link">Learn more →</div>
-        </div>
-
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">💡</div>
-          <h3>Lighting Installation</h3>
-          <p>Recessed lighting, ceiling fans, outdoor fixtures, and smart lighting systems. We handle everything from a single fixture to whole-home installs.</p>
-          <div class="service-link">Learn more →</div>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-icon">🚗</div>
-          <h3>EV Charger Install</h3>
-          <p>Charge your electric vehicle at home with a Level 2 EV charger. We install all major brands and handle permits and inspections.</p>
-          <div class="service-link">Learn more →</div>
-        </div>
-
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">🔍</div>
-          <h3>Safety Inspections</h3>
-          <p>Comprehensive electrical inspections to identify hazards before they become problems. Perfect for older homes, real estate transactions, and peace of mind.</p>
-          <div class="service-link">Learn more →</div>
-        </div>
-
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">🚨</div>
-          <h3>Emergency Repairs</h3>
-          <p>Electrical emergencies don't wait for business hours. When sparks fly or power fails, our team responds fast to restore safety to your home or business.</p>
-          <div class="service-link">Learn more →</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── WHY US ─────────────────────────────────────────────────── -->
-  <section id="why">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Why Neely Electrical</div>
-        <h2 class="section-title">The Neely Difference</h2>
-      </div>
-
-      <div class="why-grid">
-        <div class="why-card reveal">
-          <div class="why-num">01</div>
-          <h3>Genuinely Local</h3>
-          <p>We live and work in Austin. We know the codes, the inspectors, and the neighborhoods. You're not getting a national franchise — you're getting your neighbor who knows this city inside and out.</p>
-        </div>
-
-        <div class="why-card reveal reveal-delay-1">
-          <div class="why-num">02</div>
-          <h3>Transparent Pricing</h3>
-          <p>We give you the price upfront — before a single wire is touched. No after-the-fact surprises, no hourly rate mysteries. Flat-rate pricing means you know exactly what you're paying.</p>
-        </div>
-
-        <div class="why-card reveal reveal-delay-2">
-          <div class="why-num">03</div>
-          <h3>Quality Guaranteed</h3>
-          <p>Every job is inspected and backed by our 100% satisfaction guarantee. If something isn't right, we come back and make it right — no arguments, no excuses.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── REVIEWS ─────────────────────────────────────────────────── -->
-  <section id="reviews">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Customer Reviews</div>
-        <h2 class="section-title">Austin Homeowners<br>Trust Neely</h2>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="review-card reveal">
-          <div class="review-badge">Verified</div>
-          <div class="review-stars">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-          </div>
-          <div class="review-quote">"</div>
-          <p class="review-text">Neely Electrical replaced my entire panel after a breaker kept tripping. They came out the same day I called, gave me a clear quote, and finished the job in one afternoon. No mess, no fuss — just solid work. Highly recommend to anyone in Austin.</p>
-          <div class="review-author">
-            <div class="review-avatar">M</div>
-            <div class="review-meta">
-              <strong>Marcus T.</strong>
-              <span>North Austin — Panel Upgrade</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-1">
-          <div class="review-badge">Verified</div>
-          <div class="review-stars">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-          </div>
-          <div class="review-quote">"</div>
-          <p class="review-text">Had Neely install a Level 2 EV charger in my garage. They handled the permit and everything — I didn't have to do a thing. Professional, on-time, and priced fairly. The charger works perfectly and I can charge my Tesla overnight with no issues.</p>
-          <div class="review-author">
-            <div class="review-avatar">S</div>
-            <div class="review-meta">
-              <strong>Sandra K.</strong>
-              <span>Round Rock — EV Charger Install</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-2">
-          <div class="review-badge">Verified</div>
-          <div class="review-stars">
-            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-          </div>
-          <div class="review-quote">"</div>
-          <p class="review-text">Called them at 8pm because I had burning smell near an outlet. They were at my house within the hour, found a loose wire that was a real fire hazard, and fixed it on the spot. Genuinely may have saved my home. I won't call anyone else for electrical work.</p>
-          <div class="review-author">
-            <div class="review-avatar">D</div>
-            <div class="review-meta">
-              <strong>David R.</strong>
-              <span>East Austin — Emergency Repair</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── CTA ─────────────────────────────────────────────────────── -->
-  <section id="cta">
-    <div class="container">
-      <div class="cta-inner reveal">
-        <div class="section-label">Ready to Get Started?</div>
-        <h2 class="cta-title">Power Up Your<br><span class="gold">Austin Home Today</span></h2>
-        <p class="cta-sub">Same-day appointments available. No obligation quotes. Local, licensed, and always on time.</p>
-        <div class="cta-btns">
-          <a href="tel:5123357682" class="btn btn-gold">📞 Call (512) 335-7682</a>
-          <a href="#contact" class="btn btn-outline">Request a Free Quote</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── CONTACT ─────────────────────────────────────────────────── -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-header reveal" style="text-align:left;">
-        <div class="section-label">Get in Touch</div>
-        <h2 class="section-title">Let's Talk<br>About Your Project</h2>
-      </div>
-
-      <div class="contact-grid">
-        <!-- Info -->
-        <div class="reveal">
-          <div class="contact-info-item">
-            <div class="contact-info-icon">📞</div>
-            <div class="contact-info-text">
-              <strong>Phone</strong>
-              <p><a href="tel:5123357682">(512) 335-7682</a></p>
-              <span>Call or text anytime</span>
-            </div>
-          </div>
-
-          <div class="contact-info-item">
-            <div class="contact-info-icon">📍</div>
-            <div class="contact-info-text">
-              <strong>Location</strong>
-              <p>9407 Brown Ln</p>
-              <span>Austin, TX 78754</span>
-            </div>
-          </div>
-
-          <div class="contact-info-item">
-            <div class="contact-info-icon">🌐</div>
-            <div class="contact-info-text">
-              <strong>Service Area</strong>
-              <p>Greater Austin, TX</p>
-              <span>Including Round Rock, Cedar Park, Pflugerville, Georgetown</span>
-            </div>
-          </div>
-
-          <div class="contact-hours">
-            <h4>Business Hours</h4>
-            <div class="hours-row">
-              <span>Monday – Friday</span>
-              <span>7:00 AM – 7:00 PM</span>
-            </div>
-            <div class="hours-row">
-              <span>Saturday</span>
-              <span>8:00 AM – 5:00 PM</span>
-            </div>
-            <div class="hours-row">
-              <span>Sunday</span>
-              <span>Emergency Only</span>
-            </div>
-            <div class="hours-row">
-              <span>Emergency Line</span>
-              <span style="color: var(--gold);">24 / 7</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Form -->
-        <div class="contact-form reveal reveal-delay-1">
-          <h3>Request a Free Quote</h3>
-          <p>Fill out the form and we'll get back to you within 2 hours during business hours.</p>
-
-          <div class="form-fields" id="formFields">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fname">Your Name</label>
-                <input type="text" id="fname" name="name" placeholder="John Smith" required />
-              </div>
-              <div class="form-group">
-                <label for="fphone">Phone Number</label>
-                <input type="tel" id="fphone" name="phone" placeholder="(512) 000-0000" required />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="femail">Email Address</label>
-              <input type="email" id="femail" name="email" placeholder="john@example.com" required />
-            </div>
-
-            <div class="form-group">
-              <label for="fservice">Service Needed</label>
-              <select id="fservice" name="service" required>
-                <option value="" disabled selected>Select a service...</option>
-                <option value="panel">Panel Upgrade</option>
-                <option value="outlet">Outlet &amp; Wiring</option>
-                <option value="lighting">Lighting Installation</option>
-                <option value="ev">EV Charger Install</option>
-                <option value="inspection">Safety Inspection</option>
-                <option value="emergency">Emergency Repair</option>
-                <option value="other">Other / Not Sure</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="fmessage">Tell Us More (Optional)</label>
-              <textarea id="fmessage" name="message" placeholder="Describe your project or issue — the more detail the better..."></textarea>
-            </div>
-
-            <button type="button" class="btn btn-gold form-submit" id="formSubmit">
-              Send My Free Quote Request ⚡
-            </button>
-            <p class="form-disclaimer">We respect your privacy. No spam, ever.</p>
-          </div>
-
-          <div class="form-success" id="formSuccess">
-            <div class="success-icon">⚡</div>
-            <h4>Request Received!</h4>
-            <p>Thanks! We'll reach out within 2 hours during business hours. For urgent needs, call us directly at <a href="tel:5123357682" style="color:var(--gold)">(512) 335-7682</a>.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── FOOTER ─────────────────────────────────────────────────── -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="#hero" class="nav-logo">
-            <div class="nav-logo-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13 2L4.5 13.5H11.5L11 22L19.5 10.5H12.5L13 2Z" fill="#000" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="nav-logo-text">
-              NEELY ELECTRICAL
-              <span>Services Co.</span>
-            </div>
-          </a>
-          <p class="footer-tagline">Austin's trusted licensed electrician — delivering safe, reliable electrical work done right the first time.</p>
-        </div>
-
-        <div class="footer-links">
-          <h5>Services</h5>
-          <ul>
-            <li><a href="#services">Panel Upgrades</a></li>
-            <li><a href="#services">Outlet &amp; Wiring</a></li>
-            <li><a href="#services">Lighting Installation</a></li>
-            <li><a href="#services">EV Charger Install</a></li>
-            <li><a href="#services">Safety Inspections</a></li>
-            <li><a href="#services">Emergency Repairs</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h5>Navigate</h5>
-          <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#why">About</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-contact">
-          <h5 style="font-family:var(--font-head);font-size:16px;letter-spacing:0.1em;color:var(--gold);margin-bottom:16px;">Contact</h5>
-          <p>📞 <a href="tel:5123357682">(512) 335-7682</a></p>
-          <p>📍 9407 Brown Ln, Austin TX 78754</p>
-          <p style="margin-top:16px;">
-            <a href="tel:5123357682" class="btn btn-gold" style="padding:10px 20px;font-size:14px;">Call Now</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2025 Neely Electrical Services Co. All rights reserved.</p>
-        <p class="footer-lic">Licensed Electrician — State of Texas | Austin, TX</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ─── JS ──────────────────────────────────────────────────────── -->
-  <script>
-    // Mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const navMobile = document.getElementById('navMobile');
-    let mobileOpen = false;
-
-    navToggle.addEventListener('click', () => {
-      mobileOpen = !mobileOpen;
-      navMobile.classList.toggle('open', mobileOpen);
-      const spans = navToggle.querySelectorAll('span');
-      if (mobileOpen) {
-        spans[0].style.cssText = 'transform: rotate(45deg) translate(5px, 5px)';
-        spans[1].style.cssText = 'opacity: 0';
-        spans[2].style.cssText = 'transform: rotate(-45deg) translate(5px, -5px)';
-      } else {
-        spans.forEach(s => s.style.cssText = '');
-      }
-    });
-
-    function closeMobileNav() {
-      mobileOpen = false;
-      navMobile.classList.remove('open');
-      navToggle.querySelectorAll('span').forEach(s => s.style.cssText = '');
+// Counter animation
+const counters=document.querySelectorAll('[data-count]')
+const counterObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target,target=+el.dataset.count,suffix=el.dataset.suffix||'+'
+      let current=0,step=target/60
+      const timer=setInterval(()=>{
+        current+=step
+        if(current>=target){current=target;clearInterval(timer)}
+        el.textContent=Math.floor(current)+suffix
+      },20)
+      counterObserver.unobserve(el)
     }
-
-    // Close mobile nav on outside click
-    document.addEventListener('click', e => {
-      if (mobileOpen && !navMobile.contains(e.target) && !navToggle.contains(e.target)) {
-        closeMobileNav();
-      }
-    });
-
-    // Scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    // Nav background on scroll
-    const navEl = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        navEl.style.background = 'rgba(10,10,15,0.97)';
-      } else {
-        navEl.style.background = 'rgba(10,10,15,0.85)';
-      }
-    }, { passive: true });
-
-    // Form submission (front-end only demo)
-    const formSubmit = document.getElementById('formSubmit');
-    const formFields = document.getElementById('formFields');
-    const formSuccess = document.getElementById('formSuccess');
-
-    formSubmit.addEventListener('click', () => {
-      const name = document.getElementById('fname').value.trim();
-      const phone = document.getElementById('fphone').value.trim();
-      const email = document.getElementById('femail').value.trim();
-      const service = document.getElementById('fservice').value;
-
-      if (!name || !phone || !email || !service) {
-        formSubmit.textContent = 'Please fill in all required fields';
-        formSubmit.style.background = '#c0392b';
-        formSubmit.style.borderColor = '#c0392b';
-        formSubmit.style.color = '#fff';
-        setTimeout(() => {
-          formSubmit.innerHTML = 'Send My Free Quote Request ⚡';
-          formSubmit.style.background = '';
-          formSubmit.style.borderColor = '';
-          formSubmit.style.color = '';
-        }, 2500);
-        return;
-      }
-
-      formSubmit.innerHTML = 'Sending...';
-      formSubmit.style.opacity = '0.7';
-      formSubmit.disabled = true;
-
-      setTimeout(() => {
-        formFields.classList.add('hidden');
-        formSuccess.classList.add('show');
-      }, 900);
-    });
-
-    // Smooth anchor scroll offset for fixed nav
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const offset = 80;
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
-
+  })
+},{threshold:.5})
+counters.forEach(el=>counterObserver.observe(el))
+</script>
 </body>
 </html>
