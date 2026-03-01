@@ -368,9 +368,9 @@ function render() {
     const p = l['Priority'] || '';
     const matchFilter =
       currentFilter === 'all' ||
-      (currentFilter === 'high' && p.includes('HIGH')) ||
-      (currentFilter === 'medium' && p.includes('MEDIUM')) ||
-      (currentFilter === 'low' && p.includes('LOW'));
+      (currentFilter === 'high' && !hasWeb) ||
+      (currentFilter === 'medium' && reviews <= 20) ||
+      (currentFilter === 'low' && hasWeb);
 
     const reviews = parseInt(l['Reviews']) || 0;
     const rating = (l['Rating'] === 'N/A' || l['Rating'] === '' || l['Rating'] == null) ? null : (parseFloat(l['Rating']) || null);
